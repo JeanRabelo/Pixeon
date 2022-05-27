@@ -4,9 +4,9 @@
 The project was made using Flask as the python framework.
 
 There are 3 groups of routes:
-	* Traditional routes for info (/exams, /physicians, /patients, /orders)
-	* Route for making a simple and direct SQL query to the database (/query)
-	* Route for status checking (/status)
+-  Traditional routes for info (/exams, /physicians, /patients, /orders)
+- Route for making a simple and direct SQL query to the database (/query)
+- Route for status checking (/status)
 
 There are some images below that ilustrate the usage of the first 2 (the third one is intuitive):
 
