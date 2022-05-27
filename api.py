@@ -117,11 +117,6 @@ def get_query():
     results = cur.fetchall()
     return jsonify(results)
 
-@app.route('/args', methods=['GET'])
-def get_test_args():
-    args = request.args
-    return jsonify(args)
-
 @app.route('/exams', methods=['GET'])
 def get_exam():
     return get_table(request, 'exam')
