@@ -1,0 +1,129 @@
+{
+	"jointable": {
+		"exam": {
+			"order": [
+				"INNER JOIN \"order\" ON exam.\"orderId\"=\"order\".id"
+			],
+			"patient": [
+				"INNER JOIN \"order\" ON exam.\"orderId\"=\"order\".id",
+				"INNER JOIN patient ON \"order\".\"patientId\"=patient.id"
+			],
+			"physician": [
+				"INNER JOIN \"order\" ON exam.\"orderId\"=\"order\".id",
+				"INNER JOIN physician ON \"order\".\"physicianId\"=physician.id"
+			]
+		},
+		"order": {
+			"exam": [
+				"INNER JOIN exam ON \"order\".id=exam.\"orderId\""
+			],
+			"patient": [
+				"INNER JOIN patient ON \"order\".\"patientId\"=patient.id"
+			],
+			"physician": [
+				"INNER JOIN physician ON \"order\".\"physicianId\"=physician.id"
+			]
+		},
+		"patient": {
+			"exam": [
+				"INNER JOIN \"order\" ON patient.id=\"order\".\"patientId\"",
+				"INNER JOIN exam ON \"order\".id=exam.\"orderId\""
+			],
+			"order": [
+				"INNER JOIN \"order\" ON patient.id=\"order\".\"patientId\""
+			],
+			"physician": [
+				"INNER JOIN \"order\" ON patient.id=\"order\".\"patientId\"",
+				"INNER JOIN physician ON \"order\".\"physicianId\"=physician.id"
+			]
+		},
+		"physician": {
+			"exam": [
+				"INNER JOIN \"order\" ON physician.id=\"order\".\"physicianId\"",
+				"INNER JOIN exam ON \"order\".id=exam.\"orderId\""
+			],
+			"order": [
+				"INNER JOIN \"order\" ON physician.id=\"order\".\"physicianId\""
+			],
+			"patient": [
+				"INNER JOIN \"order\" ON physician.id=\"order\".\"physicianId\"",
+				"INNER JOIN patient ON \"order\".\"patientId\"=patient.id"
+			]
+		}
+	},
+	"vartype": {
+		"bmi": "int",
+		"weight": "int",
+		"height": "int",
+		"index": "int",
+		"id": "string",
+		"cpf": "string",
+		"email": "string",
+		"type": "string",
+		"phone": "string",
+		"sex": "string",
+		"name": "string",
+		"date": "timestamp",
+		"birth": "timestamp"
+	},
+	"keywords_synthetic": {
+		"bmi": [
+			"100 * 100 * patient.weight/(patient.height * patient.height)",
+			"patient"
+		]
+	},
+	"table_columns": {
+		"exam": [
+			"index",
+			"id",
+			"type",
+			"date",
+			"dateResult",
+			"pdfResult",
+			"orderId"
+		],
+		"order": [
+			"index",
+			"id",
+			"date",
+			"patientId",
+			"physicianId"
+		],
+		"patient": [
+			"index",
+			"index_patient",
+			"id",
+			"id_patient",
+			"name",
+			"name_patient",
+			"birth",
+			"birth_patient",
+			"cpf",
+			"cpf_patient",
+			"email",
+			"email_patient",
+			"type",
+			"phone",
+			"sex",
+			"weight",
+			"height"
+		],
+		"physician": [
+			"index",
+			"index_physician",
+			"id",
+			"id_physician",
+			"name",
+			"name_physician",
+			"birth",
+			"birth_physician",
+			"crm",
+			"cpf",
+			"cpf_physician",
+			"email",
+			"email_physician",
+			"type",
+			"phone"
+		]
+	}
+}
