@@ -51,6 +51,8 @@ def get_table(request, table):
                         prefix = tabletojoin + '.'
                 joins_querytext = joins_querytext + jointable[table.replace('"','')][tabletojoin]
                 columns_querytext = columns_querytext + f', {prefix}{pure_key.split("_")[0]} AS {pure_key}'
+            else:
+                prefix = table + '.'
         else:
             pure_key_name = key.split('.')[0]
             needs_join = not(keywords_synthetic[pure_key_name][1]==table)
