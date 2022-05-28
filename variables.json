@@ -104,6 +104,7 @@
 			"email_patient",
 			"type",
 			"phone",
+			"phone_patient",
 			"sex",
 			"weight",
 			"height"
@@ -123,7 +124,8 @@
 			"email",
 			"email_physician",
 			"type",
-			"phone"
+			"phone",
+			"phone_physician"
 		]
 	}
 }
